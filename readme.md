@@ -1,3 +1,7 @@
+---
+title: TakNotify
+---
+
 ## What is it?
 
 `TakNotify` is an open source library for .NET Core apps to simplify sending notifications 
