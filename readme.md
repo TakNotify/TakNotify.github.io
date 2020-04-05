@@ -1,7 +1,7 @@
 ## What is it?
 
-`TakNotify` is a library for .NET Core apps to simplify sending notifications into
-various targets.
+`TakNotify` is an open source library for .NET Core apps to simplify sending notifications 
+into various targets.
 
 ## Installation & Setup
 
@@ -90,10 +90,12 @@ public async Task<IAsyncResult> Get()
 ```
 
 
-## Build
+## Build from the source code
 
-If you want to build `TakNotify` from source code, the easiest way is by executing 
-the `build.ps1` script:
+The source code of `TakNotify` can be cloned from https://github.com/TakNotify/TakNotify.
+
+The easiest way to build `TakNotify` from the source code is by executing the `build.ps1` 
+script:
 
 ```powershell
 .\build.ps1
