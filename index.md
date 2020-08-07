@@ -10,16 +10,16 @@ The main goal of `TakNotify` is to help developers to integrate various notifica
 
 ## Installation
 
-`TakNotify` libraries are available as NuGet packages and can be installed easily into an ASP.NET Core application by using the `dotnet add package` command:
+`TakNotify` libraries are available as NuGet packages and can be installed easily into an ASP.NET Core application, either by using the "Manage NuGet Packages" feature in Visual Studio or by using the `dotnet add package` command from the command line:
 
 ```powershell
 dotnet add package TakNotify.AspNetCore
 dotnet add package TakNotify.Provider.Smtp
 ```
 
-The `TakNotify.AspNetCore` package contains the functionality to register the `INotification` object into the app's Dependency Injection system. `INotification` is the object in `TakNotify` that responsibles to manage the instance of TakNotify Providers and invoke the correct send notification method for you.
+The `TakNotify.AspNetCore` package contains the functionality to register the `INotification` object into the ASP.NET Core Dependency Injection pipeline. `INotification` is the object in `TakNotify` that responsibles to manage the instance of TakNotify Providers and invoke the correct send notification method for you.
 
-The `TakNotify.Provider.Smtp` package is an example of TakNotify Provider which will be used to send email notifications via SMTP. You could install multiple providers into an application.
+The `TakNotify.Provider.Smtp` package is one of TakNotify Provider which will be used to send email notifications via SMTP. You could install multiple providers into an application.
 
 Both packages above have dependencies to the main `TakNotify` library. But you don't have to install it separately because it will be downloaded automatically if you use the NuGet package installation command as above.
 
@@ -33,7 +33,7 @@ public void ConfigureServices(IServiceCollection services)
     ...
 
     services
-        .AddGoNotify()
+        .AddTakNotify()
         .AddProvider<SmtpProvider, SmtpProviderOptions>(options =>
         {
             options.Server = Configuration.GetValue<string>("Smtp:Server");
@@ -47,7 +47,13 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-The `AddGoNotify()` method will register the `INotification` as a singleton object in the application.
+Please note that you will need to reference the `TakNotify` namespace by adding the following code on top of the file:
+
+```c#
+using TakNotify;
+```
+
+The `AddTakNotify()` method will register the `INotification` as a singleton object in the application.
 
 The `AddProvider<>()` method will register the notification provider along with its specific options. In the sample code above, the option values are taken from the `Configuration` object. You can add multiple providers in the set up.
 
@@ -64,7 +70,8 @@ public WeatherForecastController(INotification notification)
 ```
 
 You can always use the generic `INotification.Send()` method to send the notification.
-However, the notification providers that you have installed usually bring an extension method that you can use to send a notification that is specific to the provider. Like in the SMTP provider, you can use the `SendEmailWithSmtp()` method to send an email notification:
+However, the notification providers that you have installed usually bring an extension method that you can use to send a notification that is specific to the provider. 
+Like in the SMTP provider, you can use the `SendEmailWithSmtp()` method to send an email notification:
 
 ```c#
 public async Task<IAsyncResult> Get()
@@ -92,7 +99,7 @@ These are the providers that you can use with `TakNotify`:
 - [TakNotify.Provider.Smtp](https://www.nuget.org/packages/TakNotify.Provider.Smtp/)
 - [TakNotify.Provider.Twilio](https://www.nuget.org/packages/TakNotify.Provider.Twilio/)
 
-More providers will be available soon.
+More providers will be coming soon.
 
 ## Build from the source code
 
@@ -109,3 +116,10 @@ The easiest way to build `TakNotify` from the source code is by executing the `b
 ```
 
 The only pre-requisite to build `TakNotify` is that you have `.NET Core SDK 3.1` installed in your machine.
+
+## Contribution
+
+As an open source project, TakNotify is open for any contribution from the community. The contribution could
+be in the form of bug reporting, bug fixing, request for features, new TakNotify providers, etc. Feel free
+to get in touch with the team via the [Issues](https://github.com/TakNotify/TakNotify/issues) page if you
+are not clear about anything. Thank you.
