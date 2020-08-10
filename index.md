@@ -91,6 +91,38 @@ public async Task<IAsyncResult> Get()
 }
 ```
 
+## Sample Application
+
+If you want to see how `TakNotify` is used in a working application, please clone the `Sample` project from https://github.com/TakNotify/Samples:
+
+```powershell
+git clone https://github.com/TakNotify/Samples
+```
+
+Depending on the provider that you want to test, you need to complete the settings in the `src\Web\appsettings.json` first.
+For example, if you want to try sending email via SMTP, you need to fill the following settings:
+
+```javascript
+{
+  "Smtp": {
+    "Server": "smtp.gmail.com",
+    "Port": 587,
+    "Username": "user@gmail.com",
+    "Password": "[pass]",
+    "UseSSL": true,
+    "DefaultFromAddress": ""
+  }
+}
+```
+
+If you use Visual Studio to open the solution, you can run the `Web` project directly by pressing `F5`.
+
+If you prefer to use command line, you can use the following command, and open https://localhost:5001 in your browser:
+
+```powershell
+dotnet run -p .\src\Web\
+```
+
 ## Available Providers
 
 These are the providers that you can use with `TakNotify`:
