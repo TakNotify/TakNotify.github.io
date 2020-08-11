@@ -127,6 +127,7 @@ dotnet run -p .\src\Web\
 
 These are the providers that you can use with `TakNotify`:
 
+- [TakNotify.Provider.Mailgun](https://www.nuget.org/packages/TakNotify.Provider.Mailgun/)
 - [TakNotify.Provider.SendGrid](https://www.nuget.org/packages/TakNotify.Provider.SendGrid/)
 - [TakNotify.Provider.Smtp](https://www.nuget.org/packages/TakNotify.Provider.Smtp/)
 - [TakNotify.Provider.Twilio](https://www.nuget.org/packages/TakNotify.Provider.Twilio/)
