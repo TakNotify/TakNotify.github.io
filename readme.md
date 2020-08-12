@@ -119,15 +119,15 @@ If you prefer to use command line, you can use the following command, and open h
 dotnet run -p .\src\Web\
 ```
 
-
 ## Available Providers
 
 These are the providers that you can use with `TakNotify`:
 
-- [TakNotify.Provider.Mailgun](https://www.nuget.org/packages/TakNotify.Provider.Mailgun/)
-- [TakNotify.Provider.SendGrid](https://www.nuget.org/packages/TakNotify.Provider.SendGrid/)
-- [TakNotify.Provider.Smtp](https://www.nuget.org/packages/TakNotify.Provider.Smtp/)
-- [TakNotify.Provider.Twilio](https://www.nuget.org/packages/TakNotify.Provider.Twilio/)
+- [TakNotify.Provider.AmazonSES](https://www.nuget.org/packages/TakNotify.Provider.AmazonSES/) (https://github.com/TakNotify/TakNotify.Provider.AmazonSES)
+- [TakNotify.Provider.Mailgun](https://www.nuget.org/packages/TakNotify.Provider.Mailgun/) (https://github.com/TakNotify/TakNotify.Provider.Mailgun)
+- [TakNotify.Provider.SendGrid](https://www.nuget.org/packages/TakNotify.Provider.SendGrid/) (https://github.com/TakNotify/TakNotify.Provider.SendGrid)
+- [TakNotify.Provider.Smtp](https://www.nuget.org/packages/TakNotify.Provider.Smtp/) (https://github.com/TakNotify/TakNotify.Provider.Smtp)
+- [TakNotify.Provider.Twilio](https://www.nuget.org/packages/TakNotify.Provider.Twilio/) (https://github.com/TakNotify/TakNotify.Provider.Twilio)
 
 More providers will be coming soon.
 
@@ -147,9 +147,12 @@ The easiest way to build `TakNotify` from the source code is by executing the `b
 
 The only pre-requisite to build `TakNotify` is that you have `.NET Core SDK 3.1` installed in your machine.
 
+You can also build the TakNotify providers by following the same procedure as above.
+
 ## Contribution
 
 As an open source project, TakNotify is open for any contribution from the community. The contribution could
 be in the form of bug reporting, bug fixing, request for features, new TakNotify providers, etc. Feel free
-to get in touch with the team via the [Issues](https://github.com/TakNotify/TakNotify/issues) page if you
+to get in touch with the team via the [Issues](https://github.com/TakNotify/TakNotify/issues) page 
+(or in each of provider repository if it is specific to certain provider) if you
 are not clear about anything. Thank you.
